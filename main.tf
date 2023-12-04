@@ -11,7 +11,7 @@ resource "aws_vpc_endpoint" "this" {
     Version   = var.policy_api_version
     Statement = var.policy_statement
   })
-
+  tags = merge({ Name = var.name }, var.tags)
   lifecycle {
     ignore_changes = [
       tags["business_unit"],
